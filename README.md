@@ -4,56 +4,44 @@
 
 使い方の例:
 
-- ローカルで開発する場合:
-  # rpi-clock
+# rpi-clock
 
-  Raspberry Pi 向けのシンプルな時計アプリケーションの雛形です。Python で書かれており、テスト（pytest）と GitHub Actions CI を含みます。
+Raspberry Pi 向けのシンプルな時計アプリケーションの雛形です。Python で書かれており、簡単な実行例を含みます。
 
-  ## 目的
+## 使い方（ローカル）
 
-  このリポジトリは小さなデモ用ライブラリ／アプリケーションの雛形を提供します。ローカルでの開発、テスト、自動テスト（CI）までのワークフローを含みます。
+```bash
+cd /DATA/rpi-clock
+# 任意: 仮想環境を使う場合
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+# 実行例（時計を表示）
+python -m rpi_clock.clock
+```
 
-  ## 使い方（ローカル）
+注: ソースは `src/rpi_clock` にあります。現在、このリポジトリには自動テスト（CI）は含まれていません。
 
-  ```bash
-  cd /DATA/rpi-clock
-  # rpi-clock
+## GitHub に公開する
 
-  Raspberry Pi 向けのシンプルな時計アプリケーションの雛形です。Python で書かれており、簡単な実行例と最小限の CI 構成を含みます。
+リポジトリを GitHub に作成するには `gh` CLI を使うか、Web UI で新しいリポジトリを作成してください。`gh` を使う例:
 
-  ## 使い方（ローカル）
+```bash
+cd /DATA/rpi-clock
+gh repo create nori-tama/rpi-clock --public --source=. --remote=origin --push
+```
 
-  ```bash
-  cd /DATA/rpi-clock
-  python3 -m venv .venv  # 任意: 仮想環境を使う場合
-  source .venv/bin/activate
-  python -m pip install --upgrade pip
-  # 実行例（時計を表示）
-  python -m rpi_clock.clock
-  ```
+SSH 鍵を使う場合はリモートを SSH URL に設定します:
 
-  注: ソースは `src/rpi_clock` にあります。現在、このリポジトリには pytest テストは含まれていません。
+```bash
+git remote set-url origin git@github.com:nori-tama/rpi-clock.git
+git push -u origin main
+```
 
-  ## GitHub に公開する
+## ライセンス
 
-  リポジトリを GitHub に作成するには `gh` CLI を使うか、Web UI で新しいリポジトリを作成してください。`gh` を使う例:
+このリポジトリは `LICENSE` ファイルに記載されたライセンスのもとで配布されます。
 
-  ```bash
-  cd /DATA/rpi-clock
-  gh repo create nori-tama/rpi-clock --public --source=. --remote=origin --push
-  ```
+## 貢献
 
-  SSH 鍵を使う場合はリモートを SSH URL に設定します:
-
-  ```bash
-  git remote set-url origin git@github.com:nori-tama/rpi-clock.git
-  git push -u origin main
-  ```
-
-  ## ライセンス
-
-  このリポジトリは `LICENSE` ファイルに記載されたライセンスのもとで配布されます。
-
-  ## 貢献
-
-  バグ報告やプルリクエストは歓迎します。まず Issue を立ててください。
+バグ報告やプルリクエストは歓迎します。まず Issue を立ててください。
