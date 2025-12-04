@@ -17,17 +17,22 @@
 
   ```bash
   cd /DATA/rpi-clock
-  python3 -m venv .venv
+  # rpi-clock
+
+  Raspberry Pi 向けのシンプルな時計アプリケーションの雛形です。Python で書かれており、簡単な実行例と最小限の CI 構成を含みます。
+
+  ## 使い方（ローカル）
+
+  ```bash
+  cd /DATA/rpi-clock
+  python3 -m venv .venv  # 任意: 仮想環境を使う場合
   source .venv/bin/activate
   python -m pip install --upgrade pip
-  python -m pip install -r requirements.txt
-  # テスト実行
-  PYTHONPATH=src pytest -q
   # 実行例（時計を表示）
   python -m rpi_clock.clock
   ```
 
-  注: ソースは `src/rpi_clock` にあり、テストは `tests/` にあります。テスト実行時は `PYTHONPATH=src` を指定するか、仮想環境にパッケージをインストールしてください。
+  注: ソースは `src/rpi_clock` にあります。現在、このリポジトリには pytest テストは含まれていません。
 
   ## GitHub に公開する
 
